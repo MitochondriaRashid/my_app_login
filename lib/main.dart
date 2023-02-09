@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'class.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,221 +35,90 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var displaySize = MediaQuery.of(context);
-    final double displayWidth = displaySize.size.width;
-    final double displayHeight = displaySize.size.height;
+    // var displaySize = MediaQuery.of(context);
+    // final double displayWidth = displaySize.size.width;
+    // final double displayHeight = displaySize.size.height;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Stack(
-          children: [
-            Container(
-              width: 600,
-              height: 600,
-              color: Color.fromRGBO(189, 205, 214, 1),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Align(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image.asset('myTool/images/Jobs.png'),
-                        ),
-                        Text('Steve Jobs',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black))
-                      ],
+      backgroundColor: Color.fromRGBO(0, 129, 201, 1),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(20.00),
+          child: Column(
+            children: [
+              Text(
+                'Sign In',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 30.0),
+              ),
+              SizedBox(height: 30.0),
+              LogIn(),
+              SizedBox(height: 30.0),
+              Container(
+                width: 270.0,
+                decoration: BoxDecoration(),
+                child: ElevatedButton(
+                  child: Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      'Mən həmişə demişəm,indi də deyəcəm. Rəhimin götündən başqa ağzı da var!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 55, 55, 55)),
-                    ),
-                    Container(
-                      child: SizedBox(
-                        width: displayWidth/2,
-                        height: displayHeight/10.9,
-                        child: ElevatedButton(
-                            
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text('Confirm'),
-                            ), 
-                            onPressed: () {
-                              print('Confirmed');
-                            }),
-                      ),
-                    ),
-                  ],
+                  ),
+                  onPressed: () {
+                    print('Logined');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)))),
                 ),
               ),
-            ),
-          ],
-        ));
-  }
-}
-
-class MyStackApp600 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: 600,
-          height: 600,
-          color: Color.fromRGBO(240, 229, 207, 1),
-        ),
-        Column(
-          children: <Widget>[
-            Image.asset('myTool/images/user-1.jpeg'),
-            Padding(
-              padding: const EdgeInsets.all(10.00),
-              child: Row(
+              // SizedBox(height: 30.0),
+              Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  child: MyTextStyle('- OR -', 15)),
+              Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  child: GestureDetector(
+                      onTap: () {
+                        print('Signed');
+                      },
+                      child: MyTextStyle('Sign in with', 15))),
+              // SizedBox(height: 30.0),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(10.0),
-                    width: 150.0,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.00)),
-                      color: Color.fromRGBO(247, 246, 242, 1),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Accept',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(75, 101, 135, 1),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 150.0,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.00)),
-                      color: Color.fromRGBO(247, 246, 242, 1),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Decline',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(75, 101, 135, 1),
-                        ),
-                      ),
-                    ),
-                  ),
+                  SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: Image.asset('myTool/images/facebook.png')),
+                  SizedBox(
+                      width: 40.0,
+                      height: 40.0,
+                      child: Image.asset('myTool/images/google.png')),
                 ],
               ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "Terms and conditions",
-                style: TextStyle(
-                    color: Color.fromRGBO(75, 101, 135, 1),
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class MystackApp600Upper extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: 600,
-          height: 600,
-          color: Color.fromRGBO(240, 229, 207, 1),
-        ),
-        Column(
-          children: <Widget>[
-            Transform(
-              transform: Matrix4.identity()..scale(1.1, 0.4),
-              child: Image.asset('myTool/images/user-1.jpeg'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.00),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              SizedBox(height: 30.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(10.0),
-                    width: 150.0,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.00)),
-                      color: Color.fromRGBO(247, 246, 242, 1),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Accept',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(75, 101, 135, 1),
-                        ),
-                      ),
-                    ),
+                  Text(
+                    "Don't have an Account?",
+                    style: TextStyle(color: Colors.white, fontSize: 15.0),
                   ),
-                  Container(
-                    width: 150.0,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.00)),
-                      color: Color.fromRGBO(247, 246, 242, 1),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Decline',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(75, 101, 135, 1),
-                        ),
-                      ),
-                    ),
-                  ),
+                  MyTextStyle(' Sign Up', 15.0),
                 ],
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "Terms and conditions",
-                style: TextStyle(
-                    color: Color.fromRGBO(75, 101, 135, 1),
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+              )
+            ],
+          ),
         ),
-      ],
+      ),
     );
   }
 }
